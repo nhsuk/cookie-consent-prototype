@@ -2,6 +2,9 @@
   "name": "nodejs-boilerplate",
   "version": "1.0.0",
   "description": "Nodejs boilerplate with nodemon, gulp and nunjucks. Useful for basic websites or protoypes.",
+  "engines": {
+    "node": "8.10.0"
+  },
   "main": "app.js",
   "scripts": {
     "start": "node app",
