@@ -7,17 +7,36 @@
 {% block beforeContent %}
   {{ hero({
     "heading": "NHS prototyping kit (test)",
-    "text": "A simple way to make interactive prototypes that look like pages on NHS.UK."
+    "text": "Rapidly create HTML prototypes of NHS.UK services."
   }) }}
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
-      <h2 class="nhsuk-heading-m">Page examples</h2>
-      <ul class="nhsuk-list">
-        <li><a href="/content-page">Content page</a></li>
-      </il>
+    <div class="nhsuk-grid-column-one-full">
+      <div class="nhsuk-grid-row nhsuk-promo-group">
+        <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">
+          {{ promo({
+            "href": "/",
+            "heading": "Install",
+            "description": "Download and installation instructions."
+          }) }}
+        </div>
+        <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">
+          {{ promo({
+            "href": "/content-page",
+            "heading": "Examples",
+            "description": "Page layouts and components."
+          }) }}
+        </div>
+        <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">
+          {{ promo({
+            "href": "/",
+            "heading": "About",
+            "description": "Getting support and contributing."
+          }) }}
+        </div>
+      </div>
     </div>
   </div>
 {% endblock %}
