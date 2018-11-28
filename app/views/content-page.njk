@@ -1,0 +1,59 @@
+{% extends 'layout.njk' %}
+
+{% block pageTitle %}
+  Content page example
+{% endblock %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        text: "Home",
+        href: "/"
+      },
+      {
+        text: "Health A-Z",
+        href: "https://www.nhs.uk/conditions"
+      }
+    ],
+    href: "https://www.nhs.uk/conditions/abscess/",
+    text: "Abscess"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Content page example</h1>
+      <p class="nhsuk-body-l">The single-direction margin declarations have been changed to the bottom. All text elements use margin-bottom (24px desktop, 16px mobile).</p>
+
+      <h2>Heading level two</h2>
+
+      <p>This is a paragraph. Nam quis posuere nisl, <a href="#">this is what a link looks like</a> eget vulputate eros. Duis non mollis mi. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
+      <p>This is a paragraph. Aliquam pulvinar posuere elementum. Fusce tincidunt interdum mauris non pretium.</p>
+
+      <ul>
+        <li>Unordered list item</li>
+        <li>Unordered list item</li>
+      </ul>
+      
+      <ol>
+        <li>Ordered list item</li>
+        <li>Ordered list item</li>
+      </ol>
+
+      {{ panel({
+        "HTML": "
+        <h3>Panel title</h3>
+        <p>If you drive you must tell the <a href='https://www.gov.uk/contact-the-dvla\' title='External website\'>DVLA</a> about your vertigo. Visit the GOV.UK website for more information on <a href=\"https://www.gov.uk/dizziness-and-driving\" title=\"External website\">driving with vertigo</a></p>"
+      }) }}
+
+      {{ actionLink({
+        "text": "Find a minor injuries unit",
+        "href": "https://www.nhs.uk/service-search/minor-injuries-unit/locationsearch/551"
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}

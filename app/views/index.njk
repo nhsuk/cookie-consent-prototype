@@ -1,5 +1,23 @@
-{% extends 'includes/layout.njk' %}
+{% extends 'layout.njk' %}
 
-{% block body %}
-  <h1>Hello world!</h1>
+{% block pageTitle %}
+  NHS.UK Prototype Kit - Test page
+{% endblock %}
+
+{% block beforeContent %}
+  {{ hero({
+    "heading": "NHS prototyping kit (test)",
+    "text": "A simple way to make interactive prototypes that look like pages on NHS.UK."
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h2 class="nhsuk-heading-m">Page examples</h2>
+      <ul class="nhsuk-list">
+        <li><a href="/content-page">Content page</a></li>
+      </il>
+    </div>
+  </div>
 {% endblock %}
