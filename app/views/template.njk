@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
 
-    <title>{% block pageTitle %}NHS.UK prototyping kit{% endblock %}</title>
+    <title>{% block pageTitle %}NHS.UK prototype kit{% endblock %}</title>
 
     <link rel="preload" as="font" href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" type="font/woff2" crossorigin>
     <link rel="preload" as="font" href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" type="font/woff2" crossorigin>
@@ -21,6 +21,7 @@
 
     <script src="/assets/nhsuk.js" defer></script>
     <script src="/assets/libraries/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     {% block headIcons %}
     <!--[if IE]><link rel="shortcut icon" href="/assets/favicons/favicon.ico"><![endif]-->
@@ -57,7 +58,8 @@
     {% endblock %}
 
     {% block footer %}
-      {{ footer({}) }}
+      {{ footer({
+      })}}
     {% endblock %}
 
     {% block bodyEnd %}{% endblock %}

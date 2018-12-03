@@ -22,5 +22,6 @@ function watch() {
 }
 
 exports.watch = watch;
+exports.styles = styles;
 
 gulp.task('default', watch);

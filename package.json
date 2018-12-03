@@ -9,6 +9,7 @@
   "scripts": {
     "start": "node app",
     "test": "",
+    "prewatch": "gulp styles",
     "watch": "concurrently \"gulp\" \"nodemon -e js,njk,scss --watch app\""
   },
   "author": "https://github.com/AdamChrimes",
@@ -16,7 +17,7 @@
   "dependencies": {
     "event-stream": "^3.3.4",
     "express": "^4.16.4",
-    "nhsuk-frontend": "^0.2.1",
+    "nhsuk-frontend": "^0.4.0",
     "node-sass": "^4.10.0",
     "nunjucks": "^3.1.4",
     "path": "^0.12.7"
@@ -25,6 +26,7 @@
     "concurrently": "^4.1.0",
     "gulp": "^4.0.0",
     "gulp-clean-css": "^3.10.0",
+    "gulp-connect": "^5.6.1",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "nodemon": "^1.18.6"

@@ -24,3 +24,10 @@
 {% block pageTitle %}
   NHS.UK Prototype Kit
 {% endblock %}
+
+{% block bodyEnd %}
+  {% block scripts %}
+    {% include "includes/scripts.html" %}
+    {% block pageScripts %}{% endblock %}
+  {% endblock %}
+{% endblock %}
