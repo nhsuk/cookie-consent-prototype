@@ -9,6 +9,6 @@ Install the long-term support (LTS) version of <a href="https://nodejs.org/en/">
 
 ## Running the application
 
-Clone the repo: `git clone https://github.com/AdamChrimes/nodejs-boilerplate-simple.git nodejs-boilerplate-simple` and whilst in the project directory `cd nodejs-boilerplate-simple`, install the required npm packages with: `npm install`
+Clone the repo: `git clone https://github.com/davidhunter08/prototyping-kit-test prototyping-kit-test` and whilst in the project directory `cd prototyping-kit-test`, install the required npm packages with: `npm install`
 
 Run the project in development mode `npm run watch` and visit <a href="http://localhost:3000">http://localhost:3000</a>.
