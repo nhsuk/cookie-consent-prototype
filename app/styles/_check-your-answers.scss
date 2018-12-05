@@ -2,7 +2,7 @@
 .app-check-your-answers {
   @include nhsuk-font(19);
   margin-top: 0;
-  @include nhsuk-responsive-margin(9, "bottom");
+  @include nhsuk-responsive-margin(7, "bottom");
   @include mq($from: desktop) {
     display: table;
   }
