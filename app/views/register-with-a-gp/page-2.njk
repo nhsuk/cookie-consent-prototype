@@ -8,44 +8,36 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-three-quarters">
 
-      <h1>Page 2</h1>
-      <form action="/register-with-a-gp/page-3">
-        <div class="nhsuk-form-group">
-          <label class="nhsuk-label" for="name">First name</label>
-          <input class="nhsuk-input" id="name" type="text" name="name">
-        </div>
-        <div class="nhsuk-form-group">
-          <label class="nhsuk-label" for="lastname">Last name</label>
-          <input class="nhsuk-input" id="lastname" type="text" name="lastname">
-        </div>
-        {% from 'radios/macro.njk' import radios %}
+    <form action="/register-with-a-gp/page-3">
 
-        {{ radios({
-          "idPrefix": "agree'",
-          "classes": "nhsuk-radios--inline",
-          "name": "agree",
-          "fieldset": {
-            "legend": {
-              "text": "Have you changed your name?"
-            }
+      {{ radios({
+        "idPrefix": "know-nhs-number",
+        "name": "know-nhs-number",
+        "fieldset": {
+          "legend": {
+            "text": "Do you know your NHS number?",
+            "classes": "nhsuk-fieldset__legend--l"
+          }
+        },
+        "hint": {
+          "text": "This is a 10 digit number, like 485 777 3456. You can find it on any letter the NHS has sent you, on a prescription, or by logging in to a GP practice online service."
+        },
+        "items": [
+          {
+            "value": "yes",
+            "text": "Yes"
           },
-          "hint": {
-            "text": "This includes changing your last name or spelling your name differently."
-          },
-          "items": [
-            {
-              "value": "Yes",
-              "text": "Yes"
-            },
-            {
-              "value": "No",
-              "text": "No"
-            }
-          ]
+          {
+            "value": "no",
+            "text": "No"
+          }
+        ]
         }) }}
-        <div class="nhsuk-form-group">
-          <button class="nhsuk-button" type="submit">Submit</button>
-        </div>
+
+        {{ button({
+          "text": "Continue"
+        }) }}
+
       </form>
 
     </div>

@@ -8,10 +8,34 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-three-quarters">
 
-      <h1>Page 3</h1>
-      <p><strong>Your name:</strong> <span data-name="name"></span> <span data-name="lastname"></span></p>
-      <p><strong>Do you agree?</strong> <span data-name="agree"></span></p>
-      <a href="/register-with-a-gp/page-2">Go back</a>
+    <form action="/register-with-a-gp/page-4">
+
+      <h1 class="nhsuk-fieldset__legend--l">Enter your NHS number</h1>
+
+      {{ hint({
+        "text": "This is a 10 digit number, like 485 777 3456."
+      }) }}
+
+      {{ input({
+        "label": {
+          "text": "NHS number",
+          "classes": "nhsuk-u-visually-hidden"
+        },
+        "id": "nhs-number",
+        "name": "nhs-number",
+        "classes": "nhsuk-input--width-10"
+      }) }}
+
+      {{ button({
+        "text": "Continue"
+      }) }}
+
+      {{ backLink({
+        "href": "/register-with-a-gp/page-2",
+        "text": "Change my previous answer"
+      }) }}
+
+    </form>
 
     </div>
   </div>

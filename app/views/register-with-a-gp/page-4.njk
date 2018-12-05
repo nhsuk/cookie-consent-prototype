@@ -1,0 +1,54 @@
+{% extends 'layout-transactional.njk' %}
+
+{% block pageTitle %}
+  NHS.UK - Register at the Rose Medical Practice
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-three-quarters">
+
+    <form action="/register-with-a-gp/summary">
+
+      <h1 class="nhsuk-fieldset__legend--l">What is your name?</h1>
+
+      {{ input({
+        "label": {
+          "text": "First name"
+        },
+        "id": "first-name",
+        "name": "first-name",
+        "classes": "nhsuk-!-width-three-quarters"
+      }) }}
+
+      {{ input({
+        "label": {
+          "text": "Middle name"
+        },
+        "id": "middle-name",
+        "name": "middle-name"
+      }) }}
+
+      {{ input({
+        "label": {
+          "text": "Last name"
+        },
+        "id": "last-name",
+        "name": "last-name"
+      }) }}
+
+
+      {{ button({
+        "text": "Continue"
+      }) }}
+
+      {{ backLink({
+        "href": "/register-with-a-gp/page-3",
+        "text": "Change my previous answer"
+      }) }}
+
+    </form>
+
+    </div>
+  </div>
+{% endblock %}

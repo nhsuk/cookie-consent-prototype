@@ -1,5 +1,7 @@
 {% extends "layout.njk" %}
 
+{% set mainClasses = 'nhsuk-main-wrapper--s' %}
+
 {% block pageTitle %}
   Page layout for transactional services
 {% endblock %}
@@ -8,7 +10,7 @@
   {{ header({
     "transactionalService": {
         "name": "Register with a GP",
-        "href": "/"
+        "href": "/register-with-a-gp"
       },
       "showNav": "false",
       "showSearch": "false"
