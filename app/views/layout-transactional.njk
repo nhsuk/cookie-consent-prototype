@@ -1,7 +1,7 @@
-{% extends 'layout.njk' %}
+{% extends "layout.njk" %}
 
 {% block pageTitle %}
-  NHS.UK - Register at the Rose Medical Practice
+  Page layout for transactional services
 {% endblock %}
 
 {% block header %}
@@ -17,19 +17,6 @@
 {% endblock %}
 
 {% block beforeContent %}
-{% endblock %}
-
-{% block content %}
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-three-quarters">
-      {% block contentInside %}
-      <h1>Page 3</h1>
-      <p><strong>Your name:</strong> <span data-name="name"></span> <span data-name="lastname"></span></p>
-      <p><strong>Do you agree?</strong> <span data-name="agree"></span></p>
-      <a href="/register-for-a-gp/page-2">Go back</a>
-      {% endblock %}
-    </div>
-  </div>
 {% endblock %}
 
 {% block footer %}

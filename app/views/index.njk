@@ -6,37 +6,27 @@
 
 {% block beforeContent %}
   {{ hero({
-    "heading": "NHS.UK prototype kit (test)",
-    "text": "Rapidly create HTML prototypes of NHS.UK services."
+    "heading": "Prototype kit test",
+    "text": "Rapidly create HTML prototypes."
   }) }}
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-full">
-      <div class="nhsuk-grid-row nhsuk-promo-group">
-        <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">
-          {{ promo({
-            "href": "/",
-            "heading": "Install",
-            "description": "Download and installation instructions."
-          }) }}
-        </div>
-        <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">
-          {{ promo({
-            "href": "/pages/content-page",
-            "heading": "Examples",
-            "description": "Page layouts and components."
-          }) }}
-        </div>
-        <div class="nhsuk-grid-column-one-third nhsuk-promo-group__item">
-          {{ promo({
-            "href": "/",
-            "heading": "About",
-            "description": "Getting support and contributing."
-          }) }}
-        </div>
-      </div>
+    <div class="nhsuk-grid-column-one-third">
+      <h2 class="nhsuk-heading-m">Hub pages</h2>
+      <ul>
+        <li><a href="/hubs/hub-level-1">Hub level 1</a></li>
+        <li><a href="/hubs/hub-level-2">Hub level 2</a></li>
+      </ul>
     </div>
+
+    <div class="nhsuk-grid-column-one-third">
+      <h2 class="nhsuk-heading-m">Transactional</h2>
+      <ul>
+        <li><a href="/register-with-a-gp">Register with a GP</a></li>
+      </ul>
+    </div>
+
   </div>
 {% endblock %}

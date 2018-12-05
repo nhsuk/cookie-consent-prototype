@@ -1,0 +1,30 @@
+{% extends 'layout-nhsuk.njk' %}
+
+{% block pageTitle %}
+  NHS.UK - Register at the Rose Medical Practice
+{% endblock %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    text: "Home",
+    href: "/"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-three-quarters">
+      <h1>Register at the Rose Medical Practice</h1>
+      <p>To register we will ask you for information about yourself including:</p>
+      <ul>
+        <li>your NHS number - if you know it</li>
+      </ul>
+      <p>This is to help Rose Medical Practice find your medical records.</p>
+      <a href="/register-with-a-gp/page-2" class="nhsuk-button btn nhsuk-!-margin-bottom-0">Start now</a>
+      <hr>
+      <h2 class="nhsuk-heading-m">How we handle your personal information</h2>
+      <p>Only Rose Medical Practice sees the personal information you put in this application. We send it to them securely so they can add it to your medical record.</p>
+      <p>We do not store it for any other reason.</p>
+    </div>
+  </div>
+{% endblock %}

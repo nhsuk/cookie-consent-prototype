@@ -1,0 +1,24 @@
+{% extends 'layout-nhsuk.njk' %}
+
+{% block pageTitle %}
+  NHS.UK - Hub level 1
+{% endblock %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    text: "Home",
+    href: "/"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-three-quarters">
+
+      <h1>Hub level 1</h1>
+
+      <a href="/hubs/hub-level-2">Hub level 2</a>
+
+    </div>
+  </div>
+{% endblock %}
