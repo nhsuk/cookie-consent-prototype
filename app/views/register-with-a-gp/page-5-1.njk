@@ -1,14 +1,14 @@
 {% extends 'layout-transactional.njk' %}
 
 {% block pageTitle %}
-  NHS.UK - Register at the Rose Medical Practice
+  Register with a GP - What is your date of birth? - Error
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-three-quarters">
 
-    <form action="/register-with-a-gp/page-5-1">
+    <form action="/register-with-a-gp/page-6">
 
       {{ dateInput({
         "id": "dob",
@@ -22,6 +22,9 @@
         "hint": {
           "text": "For example, 15 3 1984"
         },
+        "errorMessage": {
+          "text": "Date of birth must be in the past"
+        },
         "items": [
           {
             "name": "day",
@@ -32,8 +35,10 @@
             "classes": "nhsuk-input--width-2"
           },
           {
-            "name": "year",
-            "classes": "nhsuk-input--width-4"
+            "name": "year-error",
+            "label": "Year",
+            "classes": "nhsuk-input--width-4 nhsuk-input--error",
+            "value": "2069"
           }
         ]
       }) }}
