@@ -10,7 +10,13 @@
 
     <form action="/register-with-a-gp/page-4">
 
-      <h1 class="nhsuk-fieldset__legend--l">Enter your NHS number</h1>
+      {% call fieldset({
+        legend: {
+          text: "Enter your NHS number",
+          classes: "nhsuk-fieldset__legend--l",
+          isPageHeading: true
+        }
+      }) %}
 
       {{ hint({
         "text": "This is a 10 digit number, like 485 777 3456."
@@ -26,6 +32,8 @@
         "classes": "nhsuk-input--width-10",
         "type": "number"
       }) }}
+
+      {% endcall %}
 
       {{ button({
         "text": "Continue"

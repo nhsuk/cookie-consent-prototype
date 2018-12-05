@@ -10,7 +10,13 @@
 
     <form action="/register-with-a-gp/page-5">
 
-      <h1 class="nhsuk-fieldset__legend--l">What is your name?</h1>
+      {% call fieldset({
+        legend: {
+          text: "What is your name?",
+          classes: "nhsuk-fieldset__legend--l",
+          isPageHeading: true
+        }
+      }) %}
 
       {{ input({
         "label": {
@@ -18,7 +24,7 @@
         },
         "id": "first-name",
         "name": "first-name",
-        "classes": "nhsuk-!-width-three-quarters"
+        "classes": "nhsuk-u-width-three-quarters"
       }) }}
 
       {{ input({
@@ -26,7 +32,8 @@
           "text": "Middle name"
         },
         "id": "middle-name",
-        "name": "middle-name"
+        "name": "middle-name",
+        "classes": "nhsuk-u-width-three-quarters"
       }) }}
 
       {{ input({
@@ -34,9 +41,11 @@
           "text": "Last name"
         },
         "id": "last-name",
-        "name": "last-name"
+        "name": "last-name",
+        "classes": "nhsuk-u-width-three-quarters"
       }) }}
 
+      {% endcall %}
 
       {{ button({
         "text": "Continue"

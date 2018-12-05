@@ -10,29 +10,39 @@
 
     <form id="form_id" action="/register-with-a-gp/page-3">
 
-      {{ radios({
-        "idPrefix": "know-nhs-number",
-        "name": "know-nhs-number",
-        "fieldset": {
-          "legend": {
-            "text": "Do you know your NHS number?",
-            "classes": "nhsuk-fieldset__legend--l"
+        {% call fieldset({
+          legend: {
+            text: "Do you know your NHS number?",
+            classes: "nhsuk-fieldset__legend--l",
+            isPageHeading: true
           }
-        },
-        "hint": {
-          "text": "This is a 10 digit number, like 485 777 3456. You can find it on any letter the NHS has sent you, on a prescription, or by logging in to a GP practice online service."
-        },
-        "items": [
-          {
-            "value": "yes",
-            "text": "Yes"
-          },
-          {
-            "value": "no",
-            "text": "No"
-          }
-        ]
+        }) %}
+
+        {{ hint({
+          "text": "This is a 10 digit number, like 485 777 3456."
         }) }}
+
+        {{ hint({
+          "text": "You can find it on any letter the NHS has sent you, on a prescription, or by logging in to a GP practice online service.",
+          "classes": "nhsuk-!-margin-bottom-5"
+        }) }}
+
+        {{ radios({
+          "idPrefix": "know-nhs-number",
+          "name": "know-nhs-number",
+          "items": [
+            {
+              "value": "Yes",
+              "text": "Yes"
+            },
+            {
+              "value": "No",
+              "text": "No"
+            }
+          ]
+        }) }}
+
+        {% endcall %}
 
         {{ button({
           "text": "Continue",
