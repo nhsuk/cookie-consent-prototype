@@ -1,0 +1,84 @@
+{% extends 'layout.njk' %}
+
+{% block pageTitle %}
+  NHS.UK - Register at the Rose Medical Practice
+{% endblock %}
+
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Register with a GP",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-three-quarters">
+      {% block contentInside %}
+      <h1>Page 2</h1>
+      <form action="/register-for-a-gp/page-3">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="name">First name</label>
+          <input class="nhsuk-input" id="name" type="text" name="name">
+        </div>
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="lastname">Last name</label>
+          <input class="nhsuk-input" id="lastname" type="text" name="lastname">
+        </div>
+        {% from 'radios/macro.njk' import radios %}
+
+        {{ radios({
+          "idPrefix": "agree'",
+          "classes": "nhsuk-radios--inline",
+          "name": "agree",
+          "fieldset": {
+            "legend": {
+              "text": "Have you changed your name?"
+            }
+          },
+          "hint": {
+            "text": "This includes changing your last name or spelling your name differently."
+          },
+          "items": [
+            {
+              "value": "Yes",
+              "text": "Yes"
+            },
+            {
+              "value": "No",
+              "text": "No"
+            }
+          ]
+        }) }}
+        <div class="nhsuk-form-group">
+          <button class="nhsuk-button" type="submit">Submit</button>
+        </div>
+    </form>
+      {% endblock %}
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {{ footer({
+    "showLogo": "false",
+    "primaryLinks": [
+      {
+      "url": "https://www.nhs.uk/about-us/sitemap/",
+      "label": "Sitemap"
+    },
+    {
+      "url": "https://www.nhs.uk/our-policies/",
+      "label": "Our policies"
+    }
+    ]
+  })}}
+{% endblock %}

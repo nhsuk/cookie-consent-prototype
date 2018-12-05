@@ -1,0 +1,49 @@
+{% extends 'layout.njk' %}
+
+{% block pageTitle %}
+  NHS.UK - Register at the Rose Medical Practice
+{% endblock %}
+
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "Register with a GP",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-three-quarters">
+      {% block contentInside %}
+      <h1>Page 3</h1>
+      <p><strong>Your name:</strong> <span data-name="name"></span> <span data-name="lastname"></span></p>
+      <p><strong>Do you agree?</strong> <span data-name="agree"></span></p>
+      <a href="/register-for-a-gp/page-2">Go back</a>
+      {% endblock %}
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {{ footer({
+    "showLogo": "false",
+    "primaryLinks": [
+      {
+      "url": "https://www.nhs.uk/about-us/sitemap/",
+      "label": "Sitemap"
+    },
+    {
+      "url": "https://www.nhs.uk/our-policies/",
+      "label": "Our policies"
+    }
+    ]
+  })}}
+{% endblock %}
