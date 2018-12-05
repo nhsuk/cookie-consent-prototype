@@ -8,23 +8,20 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-three-quarters">
 
-    <form action="/register-with-a-gp/page-4">
+    <form action="/register-with-a-gp/summary">
 
-      <h1 class="nhsuk-fieldset__legend--l">Enter your NHS number</h1>
-
-      {{ hint({
-        "text": "This is a 10 digit number, like 485 777 3456."
-      }) }}
+      <h1 class="nhsuk-fieldset__legend--l">What is your current address?</h1>
 
       {{ input({
         "label": {
-          "text": "NHS number",
-          "classes": "nhsuk-u-visually-hidden"
+          "text": "Enter your postcode"
         },
-        "id": "nhs-number",
-        "name": "nhs-number",
-        "classes": "nhsuk-input--width-10",
-        "type": "number"
+        "hint": {
+          "text": "For example, LS29 6JE"
+        },
+        "id": "postcode",
+        "name": "postcode",
+        "classes": "nhsuk-input--width-10"
       }) }}
 
       {{ button({
@@ -34,7 +31,7 @@
     </form>
 
     {{ backLink({
-      "href": "/register-with-a-gp/page-2",
+      "href": "/register-with-a-gp/page-5",
       "text": "Change my previous answer"
     }) }}
 

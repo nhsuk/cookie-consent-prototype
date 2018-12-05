@@ -8,7 +8,7 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-three-quarters">
 
-    <form action="/register-with-a-gp/page-3">
+    <form id="form_id" action="/register-with-a-gp/page-3">
 
       {{ radios({
         "idPrefix": "know-nhs-number",
@@ -35,7 +35,8 @@
         }) }}
 
         {{ button({
-          "text": "Continue"
+          "text": "Continue",
+          "id": "btn_submit"
         }) }}
 
       </form>
