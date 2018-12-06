@@ -1,0 +1,49 @@
+{% extends 'layout-transactional.njk' %}
+
+{% block pageTitle %}
+  Register with a GP - Are you taking any regular medication?
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-three-quarters">
+
+    <form action="/register-with-a-gp/page-10">
+
+      {% call fieldset({
+        legend: {
+          text: "Are you taking any regular medication?",
+          classes: "nhsuk-fieldset__legend--l",
+          isPageHeading: true
+        }
+      }) %}
+
+      {{ textarea({
+        "name": "regular-medication",
+        "id": "regular-medication",
+        "rows": "8",
+        "label": {
+          "text": "Regular medication taking",
+          "classes": "nhsuk-u-visually-hidden"
+        },
+        "hint": {
+          "text": "If yes, please tell us what medication."
+        }
+      }) }}
+
+      {% endcall %}
+
+      {{ button({
+        "text": "Continue"
+      }) }}
+
+    </form>
+
+    {{ backLink({
+      "href": "/register-with-a-gp/page-8",
+      "text": "Change my previous answer"
+    }) }}
+
+    </div>
+  </div>
+{% endblock %}
