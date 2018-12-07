@@ -1,0 +1,24 @@
+{% extends 'layout-nhsuk.njk' %}
+
+{% block pageTitle %}
+  NHS.UK - Manage cookies
+{% endblock %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    text: "Home",
+    href: "/"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-three-quarters">
+
+      <h1>Manage cookies</h1>
+
+      <a href="/cookies/all-cookies">All cookies</a>
+
+    </div>
+  </div>
+{% endblock %}
