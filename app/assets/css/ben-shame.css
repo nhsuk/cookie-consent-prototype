@@ -13,18 +13,10 @@
     width: 100%;
 }
 
-.nhsuk-list-links--two-columns, .nhsuk-list-signage--two-columns {
-    column-count: 1;
-    column-gap: 0;
-}
-
-
 .nhsuk-list-signage {
     list-style: none;
     padding-left: 0;
 }
-
-
 
 .nhsuk-list-signage li a .nhsuk-icon {
     fill: #fff;
@@ -35,3 +27,53 @@
 }
 
 
+.nhsuk-list-signage-white li a {
+    background: #fff;
+    display: inline-block;
+    padding: 12px 24px ;
+    position: relative;
+    text-decoration: none;
+    width: 100%;
+}
+
+.nhsuk-list-signage-white li {
+    display: inline-block;
+    width: 100%;
+}
+
+.nhsuk-list-signage-white {
+    list-style: none;
+    padding-left: 0;
+}
+
+.nhsuk-list-signage-white li a .nhsuk-icon {
+    fill: #005eb8;
+    height: 24px;
+    position: absolute;
+    right: 12px;
+    width: 24px;
+}
+
+
+
+
+
+
+.nhsuk-list-links--two-columns, .nhsuk-list-signage--two-columns {
+    column-count: 1;
+    column-gap: 0;
+}
+
+
+
+
+
+
+.browse .browse-panes .root-pane ul a:after, .browse .browse-panes .section-pane ul a:after {
+    position: absolute;
+    top: 50%;
+    margin-top: -8px;
+    right: 10px;
+    float: right;
+    content: "\203A";
+}
