@@ -25,6 +25,14 @@
 }
 
 // Panel - confirmation
+
+.nhsuk-panel--confirmation {
+  background-color: shade($color_nhsuk-aqua-green, 19%);
+  color: $color_nhsuk-white;
+  margin-top: 0;
+}
+
+
 .nhsuk-panel__title {
   @include nhsuk-responsive-margin(4, "bottom");
 
@@ -34,13 +42,10 @@
 .nhsuk-panel__body {
   @include nhsuk-font(22);
 
-  color: $nhsuk-secondary-text-color;
   text-align: center;
 
   strong {
     @include nhsuk-font(32, bold);
-
-    color: $nhsuk-text-color;
   }
 }
 
