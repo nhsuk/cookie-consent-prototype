@@ -15,7 +15,6 @@ window.addEventListener("load", function checkCookie() {
     else {
         if (isValidVersion(cookieName, COOKIE_VERSION))
         {
-
         }
         else
         {
