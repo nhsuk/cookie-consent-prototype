@@ -1,7 +1,7 @@
 {% extends 'layout-transactional.njk' %}
 
 {% block pageTitle %}
-  Register with a GP - Are you taking any regular medication?
+  Register with a GP - Do you have any allergies?
 {% endblock %}
 
 {% block content %}
@@ -12,22 +12,19 @@
 
       {% call fieldset({
         legend: {
-          text: "Are you taking any regular medication?",
+          text: "Do you have any allergies?",
           classes: "nhsuk-fieldset__legend--l",
           isPageHeading: true
         }
       }) %}
 
       {{ textarea({
-        "name": "regular-medication",
-        "id": "regular-medication",
+        "name": "allergies",
+        "id": "allergies",
         "rows": "8",
         "label": {
-          "text": "Regular medication taking",
+          "text": "Allergies",
           "classes": "nhsuk-u-visually-hidden"
-        },
-        "hint": {
-          "text": "If yes, please tell us what medication."
         }
       }) }}
 
