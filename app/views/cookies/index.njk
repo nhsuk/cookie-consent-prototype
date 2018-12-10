@@ -1,0 +1,26 @@
+{% extends 'layout-nhsuk.njk' %}
+
+{% block scripts %}
+    {% include "./includes/scripts.html" %}
+{% endblock %}
+
+{% block pageTitle %}
+  Cookie test page
+{% endblock %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    text: "Home",
+    href: "/"
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-three-quarters">
+      <h1>Sample content</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec turpis nisi. Nulla facilisi. Morbi aliquet ultricies massa vel tempor. Maecenas imperdiet urna at pretium hendrerit. Curabitur laoreet est lorem, vitae placerat tortor pellentesque eget. Nulla in lobortis lacus, sollicitudin maximus ex. Fusce in maximus nunc. Vestibulum eget orci placerat, accumsan nisi eu, venenatis diam.</p>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'layout-nhsuk.njk' %}
+
+{% block pageTitle %}
+  NHS.UK - Manage cookies
+{% endblock %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    text: "Home",
+    href: "/"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-three-quarters">
+
+      <h1>Manage your cookie settings</h1>
+
+      <p>We put small files called cookies on your device to collect information about how you use our website.</p>
+      <p>We use 4 main types of cookies. You can use this page to choose which cookies you want to use.</p>
+      <p><a href="/cookies/all-cookies">Read more detail about our cookies.</a></p>
+
+  <div class="nhsuk-panel">
+    <div class="nhsuk-form-group">
+    <fieldset class="nhsuk-fieldset" aria-describedby="cookie-preferences">
+
+    <div class="nhsuk-checkboxes">
+      <h3>1. Essential cookies<h3>
+      <p>These cookies are needed to make the website work properly. They do things like protect the website from attacks.</p>
+      <div class="nhsuk-checkboxes__item">
+        <input class="nhsuk-checkboxes__input" id="nationality-1" name="nationality" type="checkbox" value="british">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-1">
+          Allow essential cookies
+        </label>
+      </div>
+      <h3>2. Site preference cookies</h3>
+      <p>These cookies make the website easier to use. They do things like remember notifications you’ve seen, so you do not see them again.</p>
+      <div class="nhsuk-checkboxes__item">
+        <input class="nhsuk-checkboxes__input" id="nationality-2" name="nationality" type="checkbox" value="irish">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-2">
+          Allow site preference cookies
+        </label>
+      </div>
+      <h3>3. Website use cookies</h3>
+      <p>These cookies help us make the website better. They collect information how you use our website, such as what you click on.</p>
+      <div class="nhsuk-checkboxes__item">
+        <input class="nhsuk-checkboxes__input" id="nationality-3" name="nationality" type="checkbox" value="other">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-3">
+          Allow website use cookies
+        </label>
+      </div>
+      <h3>4. Health campaign cookies</h3>
+      <p>These cookies help us check how our health campaigns are performing. They allow us to see how you use social media, such as Facebook or Twitter.</p>
+      <div class="nhsuk-checkboxes__item">
+        <input class="nhsuk-checkboxes__input" id="nationality-3" name="nationality" type="checkbox" value="other">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-3">
+          Allow health campaign cookies
+        </label>
+      </div>
+
+    </div>
+    </fieldset>
+      <button type="submit" class="nhsuk-button">
+        Save my settings
+      </button>
+    </div>
+  </div>
+
+    </div>
+  </div>
+{% endblock %}
