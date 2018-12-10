@@ -5,10 +5,24 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {{ breadcrumb({
-    text: "GP services",
-    href: "/hubs/hub-level-2"
-  }) }}
+{{ breadcrumb({
+  items: [
+    {
+      href: "/level-one",
+      text: "Home"
+    },
+    {
+      href: "/hubs/hub-level-1b",
+      text: "NHS services"
+    },
+        {
+      href: "/hubs/hub-level-2b",
+      text: "GP services"
+    }
+  ],
+  href: "/hubs/find-gp-1",
+  text: "Find a GP"
+}) }}
 {% endblock %}
 
 {% block content %}
@@ -25,7 +39,7 @@
         <li>your NHS number - if you know it</li>
       </ul>
       <p>This is to help Rose Medical Practice find your medical records.</p>
-      <a href="/register-with-a-gp/page-2" class="nhsuk-button btn">Start now</a>
+      <a href="/register-with-a-gp/page-2" class="nhsuk-button btn nhsuk-!-margin-bottom-8">Start now</a>
       <h2 class="nhsuk-heading-m">How we handle your personal information</h2>
       <p>Only Rose Medical Practice sees the personal information you put in this application. We send it to them securely so they can add it to your medical record.</p>
       <p>We do not store it for any other reason.</p>
@@ -35,11 +49,24 @@
         <div class="nhsuk-grid-column-one-quarter">
         <hr class="nhsuk-!-margin-top-0 nhsuk-!-margin-bottom-3">
         <h3>Related links</h3>
-
+<p>Getting started</p>
           <ul style="padding-left: 0px;">
-              <li style="list-style-type: none;"><a href="#" class="nhsuk-!-font-size-16">GP appointments and bookings</a></li>
-              <li style="list-style-type: none;"><a href="#" class="nhsuk-!-font-size-16">Referrals for specialist care</a></li>
+              <li style="list-style-type: none;"><a href="#" class="nhsuk-!-font-size-16">Find a GP practice</a></li>
+              <li style="list-style-type: none;"><a href="#" class="nhsuk-!-font-size-16">Register with a GP practice</a></li>
+          </ul>
+
+          <p>Appointments</p>
+          <ul style="padding-left: 0px;">
+              <li style="list-style-type: none;"><a href="#" class="nhsuk-!-font-size-16">How to book an appointment</a></li>
+              <li style="list-style-type: none;"><a href="#" class="nhsuk-!-font-size-16">How to make the most of your appointment</a></li>
               <li style="list-style-type: none;"><a href="#" class="nhsuk-!-font-size-16">What to ask your doctor</a></li>
+              <li style="list-style-type: none;"><a href="#" class="nhsuk-!-font-size-16">Make a complaint</a></li>
+          </ul>
+
+          <p>Referrals for specialist care</p>
+          <ul style="padding-left: 0px;">
+              <li style="list-style-type: none;"><a href="#" class="nhsuk-!-font-size-16">GP referral to specialist services</a></li>
+              <li style="list-style-type: none;"><a href="#" class="nhsuk-!-font-size-16">What choices you have</a></li>
           </ul>
 
 
