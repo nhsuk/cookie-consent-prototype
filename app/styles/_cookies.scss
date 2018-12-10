@@ -8,13 +8,23 @@ ol {
   padding-top: 1em;
 }
 
+// Karl's dirty spacing fix
+.nhsuk-checkboxes__item {
+  padding-bottom: 24px;
+}
+
 @include mq($until: desktop) {
 
   // Not sure how to override this so used important
   .nhsuk-panel {
     padding: 16px !important;
   }
+  // Karl's dirty spacing fix for mobile
+  .nhsuk-checkboxes__item {
+    padding-bottom: 16px;
+  }
 
+  // Karl's table view experiment for mobile
     thead {
       display: none;
     }
