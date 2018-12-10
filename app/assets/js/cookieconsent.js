@@ -161,8 +161,11 @@ function insertCookieBanner() {
     '#cookie-desc {margin-bottom: 24px; color: #000000;}' +
     '#cookie-title { margin-top: 24px; color: #000000;}' +
     'a:not([href]) {display: inline;}' +
-    '#nhsuk-cookie-confirmation-banner { background-color: #007f3b; top: 0; left: 0; position:relative; box-shadow: 0 -4px 0 0 #003317; display: none; height:56px; width: 100%; color: #ffffff; padding-top: 16px; padding-bottom: 16px;}' +
+    '#nhsuk-cookie-confirmation-banner { background-color: #007f3b; top: 0; left: 0; position:relative; box-shadow: 0 -4px 0 0 #003317; display: none; width: 100%; color: #ffffff; padding-top: 16px; padding-bottom: 16px;}' +
     '#nhsuk-cookie-confirmation-banner p { margin-bottom: 0px;}' +
+    '#nhsuk-cookie-confirmation-banner a:hover { color: #212b32 !important;}' +
+    '#nhsuk-cookie-confirmation-banner a:focus { color: #212b32 !important;}' +
+    '.nhsuk-cookie-banner .nhsuk-logo { height: 40px; width: 99px;}' +
     '@media only screen and (max-width: 420px) {.center-wrapper { text-align: center;}}' +
     '.nhsuk-button {-webkit-appearance: none; background-color: #007f3b; border: 2px solid transparent; border-radius: 4px; box-shadow: 0 4px 0 #003317; box-sizing: border-box; color: #ffffff; cursor: pointer; display: inline-block; font-weight: 600; margin-top: 0; margin: 0 auto; padding: 8px 16px; position: relative; text-align: center; vertical-align: top; width: auto;}' +
     '.nhsuk-button p { margin-top: 0px; margin-bottom: 0px;}' +
