@@ -1,1 +1,46 @@
 // CSS for Cookie prototypes go here
+.whitebg {
+  background: white;
+  padding: 2em 2em;
+}
+
+ol {
+  padding-top: 1em;
+}
+
+@include mq($until: desktop) {
+
+  // Not sure how to override this so used important
+  .nhsuk-panel {
+    padding: 16px !important;
+  }
+
+    thead {
+      display: none;
+    }
+    tr {
+      border-bottom: solid 2px #d8dde0;
+      display: block;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+    td {
+      border-bottom: 1px dotted #d8dde0;
+      display: block;
+      text-align: left;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      &::before {
+        content: attr(data-label);
+        display: block;
+        font-weight: bold;
+        padding-right: 20px;
+      }
+    }
+
+  }

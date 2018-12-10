@@ -31,6 +31,11 @@
   background-color: shade($color_nhsuk-aqua-green, 19%);
   color: $color_nhsuk-white;
   margin-top: 0;
+
+  @include mq($from: desktop) {
+    padding-bottom: nhsuk-spacing(8);
+    padding-top: nhsuk-spacing(8);
+  }
 }
 
 
