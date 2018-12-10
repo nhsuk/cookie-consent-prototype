@@ -11,6 +11,10 @@
 // Button adjustment
 .nhsuk-button {
   margin-top: 8px;
+
+  @include mq($from: desktop) {
+    padding: 12px 24px;
+  }
 }
 
 // Footer adjustments
