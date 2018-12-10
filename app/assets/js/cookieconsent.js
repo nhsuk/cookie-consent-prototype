@@ -37,8 +37,6 @@ function acceptConsent() {
 function getCookieVersion(name) {
     var status = getCookie(name).split('|')[1];
     return status.split(';')[0];
-    console.log("status");
-    return status;
 };
 
 function isValidVersion(name, version) {
@@ -150,7 +148,7 @@ function insertCookieBanner() {
 
     var css = '.nhsuk-cookie-banner { display: block; position: fixed; z-index: 20; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: black; background-color: rgba(0, 0, 0, 0.4);} ' +
     '#later-link { margin-bottom:16px;} ' +
-    '.modal-content { border-radius: 4px; background-color: #fefefe; margin: 15% auto; padding: 20px; border: 1px solid #888; width: 90%;}' +
+    '.modal-content { border-radius: 4px; background-color: #fefefe; margin: 15% auto; padding: 20px; border: 1px solid #888; width: 80%;}' +
     '#cookie-desc {margin-bottom: 24px; color: #000000;}' +
     '#cookie-title { margin-top: 24px; color: #000000;}' +
     'a:not([href]) {display: inline;}' +
