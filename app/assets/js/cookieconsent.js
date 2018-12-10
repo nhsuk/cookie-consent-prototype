@@ -141,7 +141,7 @@ function insertCookieBanner() {
         'I understand' +
         '</div>' +
         '<div class="nhsuk-link cookie-link">' +
-        '<p><a href="https://www.nhs.uk/aboutNHSChoices/aboutnhschoices/termsandconditions/Pages/cookies-policy.aspx">Tell me more about cookies</a></p>' +
+        '<p><a href="/cookies/manage-cookies">Tell me more about cookies</a></p>' +
         '</div>' +
         '<div class="nhsuk-link cookie-link">' +
         '<p><a id="later-link" href="#">Ask me later</a></p>' +
@@ -151,7 +151,7 @@ function insertCookieBanner() {
         '</div>' +
         '<header id="nhsuk-cookie-confirmation-banner" style="display:none;" role="banner">' +
         '<div class="nhsuk-width-container">' +
-        '<p>Your cookie settings have been saved. <a href="https://www.nhs.uk/aboutNHSChoices/aboutnhschoices/termsandconditions/Pages/cookies-policy.aspx" style="color: #ffffff;" id="change-cookie-settings">Change your cookie settings.</a></p>' +
+        '<p>Your cookie settings have been saved. <a href="/cookies/manage-cookies" style="color: #ffffff;" id="change-cookie-settings">Change your cookie settings.</a></p>' +
         '</div>' +
         '</header>');
 
