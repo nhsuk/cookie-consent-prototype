@@ -7,7 +7,7 @@
 {% block beforeContent %}
   {{ breadcrumb({
     text: "Home",
-    href: "/"
+    href: "/home-page"
   }) }}
 {% endblock %}
 
@@ -29,32 +29,32 @@
       <h3>1. Essential cookies<h3>
       <p>These cookies are needed to make the website work properly. They do things like protect the website from attacks.</p>
       <div class="nhsuk-checkboxes__item">
-        <input class="nhsuk-checkboxes__input" id="nationality-1" name="nationality" type="checkbox" value="british">
-        <label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-1">
+        <input class="nhsuk-checkboxes__input" id="essential" name="cookie-preferences" type="checkbox" value="british" checked>
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="essential">
           Allow essential cookies
         </label>
       </div>
       <h3>2. Site preference cookies</h3>
       <p>These cookies make the website easier to use. They do things like remember notifications you’ve seen, so you do not see them again.</p>
       <div class="nhsuk-checkboxes__item">
-        <input class="nhsuk-checkboxes__input" id="nationality-2" name="nationality" type="checkbox" value="irish">
-        <label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-2">
+        <input class="nhsuk-checkboxes__input" id="preferences" name="cookie-preferences" type="checkbox" value="irish" checked>
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="preferences">
           Allow site preference cookies
         </label>
       </div>
       <h3>3. Website use cookies</h3>
       <p>These cookies help us make the website better. They collect information how you use our website, such as what you click on.</p>
       <div class="nhsuk-checkboxes__item">
-        <input class="nhsuk-checkboxes__input" id="nationality-3" name="nationality" type="checkbox" value="other">
-        <label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-3">
+        <input class="nhsuk-checkboxes__input" id="data" name="cookie-preferences" type="checkbox" value="other" checked>
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="data">
           Allow website use cookies
         </label>
       </div>
       <h3>4. Health campaign cookies</h3>
       <p>These cookies help us check how our health campaigns are performing. They allow us to see how you use social media, such as Facebook or Twitter.</p>
       <div class="nhsuk-checkboxes__item">
-        <input class="nhsuk-checkboxes__input" id="nationality-3" name="nationality" type="checkbox" value="other">
-        <label class="nhsuk-label nhsuk-checkboxes__label" for="nationality-3">
+        <input class="nhsuk-checkboxes__input" id="campaigns" name="cookie-preferences" type="checkbox" value="other">
+        <label class="nhsuk-label nhsuk-checkboxes__label" for="campaigns">
           Allow health campaign cookies
         </label>
       </div>
