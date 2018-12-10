@@ -77,3 +77,12 @@
     float: right;
     content: "\203A";
 }
+
+
+a.hover {
+    text-decoration: none;
+}
+
+a.hover:hover {
+    text-decoration: underline;
+}
