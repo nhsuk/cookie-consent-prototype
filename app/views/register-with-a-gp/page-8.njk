@@ -1,36 +1,41 @@
 {% extends 'layout-transactional.njk' %}
 
 {% block pageTitle %}
-  Register with a GP - Enter your NHS number
+  Register with a GP - Telephone number
 {% endblock %}
 
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-three-quarters">
 
-    <form action="/register-with-a-gp/page-4">
+    <form action="/register-with-a-gp/page-9">
 
       {% call fieldset({
         legend: {
-          text: "Enter your NHS number",
+          text: "What is your telephone number?",
           classes: "nhsuk-fieldset__legend--l",
           isPageHeading: true
         }
       }) %}
 
-      {{ hint({
-        "text": "This is a 10 digit number, like 485 777 3456."
+      {{ input({
+        label: {
+          html: 'Landline'
+        },
+        id: "landline",
+        name: "landline",
+        type: "tel",
+        classes: "nhsuk-input--width-10"
       }) }}
 
       {{ input({
-        "label": {
-          "text": "NHS number",
-          "classes": "nhsuk-u-visually-hidden"
+        label: {
+          html: 'Mobile'
         },
-        "id": "nhs-number",
-        "name": "nhs-number",
-        "classes": "nhsuk-input--width-10",
-        "type": "number"
+        id: "mobile",
+        name: "mobile",
+        type: "tel",
+        classes: "nhsuk-input--width-10"
       }) }}
 
       {% endcall %}
@@ -42,7 +47,7 @@
     </form>
 
     {{ backLink({
-      "href": "/register-with-a-gp/page-2",
+      "href": "/register-with-a-gp/page-7",
       "text": "Change my previous answer"
     }) }}
 
