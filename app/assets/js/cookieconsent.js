@@ -37,8 +37,8 @@ function acceptConsent() {
 function getCookieVersion(name) {
     var status = getCookie(name).split('|')[1];
     return status.split(';')[0];
-    console.log("status");
-    return status;
+    // console.log("status");
+    // return status;
 };
 
 function isValidVersion(name, version) {
@@ -130,14 +130,14 @@ function insertCookieBanner() {
         '<p>They collect information about how you use our website. This helps us make the website better.</p>' +
         '<p>None of these cookies are used to tell us who you are.</p>' +
         '<div class="center-wrapper">' +
-        '<div class="nhsuk-button" role="button">' +
-        '<p>I understand</p>' +
+        '<button class="nhsuk-button">' +
+        'I understand' +
         '</div>' +
         '<div class="nhsuk-link">' +
         '<a href="https://www.nhs.uk/aboutNHSChoices/aboutnhschoices/termsandconditions/Pages/cookies-policy.aspx">Tell me more about cookies</a>' +
         '</div>' +
         '<div class="nhsuk-link">' +
-        '<a id="later-link">Ask me later</a>' +
+        '<a id="later-link" href="#">Ask me later</a>' +
         '</div>' +
         '</div>' +
         '</div>' +
@@ -190,5 +190,41 @@ function insertCookieBanner() {
             hideCookieModal();
         }
     };
+
+
+    // get all focusable elements in the modal
+    var cookiemodal = document.querySelector('.modal-content'),
+        inputs = cookiemodal.querySelectorAll('button, a'),
+        firstinput = inputs[0],
+        lastinput = inputs[inputs.length - 1];
+
+    // set focus on first focusable element
+    firstinput.focus();
+
+    // pressing escape will close the model
+    document.onkeydown = function(evt) {
+      evt = evt || window.event;
+      if (evt.keyCode === 27) { // escape key
+          hideCookieModal();
+      }
+    };
+
+    // if focus is on last element, pressing tab will focus on the first element
+    lastinput.onkeydown = function(evt) {
+      evt = evt || window.event;
+      if (evt.keyCode === 9 && !evt.shiftKey) { // tab key
+        evt.preventDefault();
+        firstinput.focus();
+      }
+    }
+
+    // if focus is on first element, shift tab will focus on the last element
+    firstinput.onkeydown = function(evt) {
+      evt = evt || window.event;
+      if (evt.keyCode === 9 && evt.shiftKey) { // shift tab
+        evt.preventDefault();
+        lastinput.focus();
+      }
+    }
 
 };
