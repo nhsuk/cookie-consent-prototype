@@ -1,0 +1,134 @@
+{% extends 'layout-nhsuk.njk' %}
+
+{% block pageTitle %}
+  NHS.UK - Find GP
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+  items: [
+    {
+      href: "/level-one",
+      text: "Home"
+    },
+    {
+      href: "/hubs/hub-level-1b",
+      text: "NHS services"
+    }
+  ],
+  href: "/hubs/hub-level-2b",
+  text: "GP services"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-three-quarters">
+
+    <form action="/hubs/find-gp-2">
+
+      {% call fieldset({
+        legend: {
+          text: "Find a GP",
+          classes: "nhsuk-fieldset__legend--l",
+          isPageHeading: true
+        }
+      }) %}
+
+
+
+        {{ input({
+          label: {
+            text: "Enter a town, city or postcode in England"
+          },
+          classes: "nhsuk-u-width-two-thirds",
+          id: "address-town",
+          name: "address-town"
+        }) }}
+
+
+
+
+
+      {% endcall %}
+
+      {{ button({
+        "text": "Search"
+      }) }}
+
+    </form>
+
+<p><a href="#">Use your location</a></p>
+
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+  <div class="nhsuk-grid-row ">
+      <div class="nhsuk-grid-column-three-quarters nhsuk-!-margin-bottom-4" >
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

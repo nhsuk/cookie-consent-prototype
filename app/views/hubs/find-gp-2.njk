@@ -1,0 +1,124 @@
+{% extends 'layout-nhsuk.njk' %}
+
+{% block pageTitle %}
+  NHS.UK - Find GP
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+  items: [
+    {
+      href: "/level-one",
+      text: "Home"
+    },
+    {
+      href: "/hubs/hub-level-1b",
+      text: "NHS services"
+    },
+        {
+      href: "/hubs/hub-level-2b",
+      text: "GP services"
+    }
+  ],
+  href: "/hubs/find-gp-1",
+  text: "Find a GP"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row nhsuk-!-margin-bottom-2">
+    <div class="nhsuk-grid-column-three-quarters">
+
+      <h1 class="nhsuk-!-margin-bottom-2">GPs near Leeds</h1>
+    </div>
+
+
+    
+  </div>
+
+  <div class="nhsuk-grid-row ">
+      <div class="nhsuk-grid-column-three-quarters nhsuk-!-margin-bottom-4" >
+
+
+    <div>
+        <hr>
+            <p class="nhsuk-!-margin-bottom-0">0.1 miles away</p>
+            <h2 class="nhsuk-heading-m nhsuk-!-margin-top-0">
+              <a href="/register-with-a-gp">Rose Medical Practice</a>
+            </h2>
+            <p>68 York Street<br/>
+                Leeds<br/>
+                West Yorkshire<br/>
+                LS9 8AA</p>
+            <p><strong>Telephone</strong> 0113 295 4840</p>
+    </div>
+
+    <div>
+        <hr>
+            <p class="nhsuk-!-margin-bottom-0">0.2 miles away</p>
+            <h2 class="nhsuk-heading-m nhsuk-!-margin-top-0">
+              <a href="#">One Medicare Llp-The Light</a>
+            </h2>
+            <p>Balcony Level 7<br />
+                The Light<br />
+                The Headrow<br />
+                Leeds<br />
+                West Yorkshire<br />
+                LS1 8TL</p>
+            <p><strong>Telephone</strong> 0113 242 7425</p>
+    </div>
+
+    <div>
+        <hr>
+            <p class="nhsuk-!-margin-bottom-0">0.6 miles away</p>
+            <h2 class="nhsuk-heading-m nhsuk-!-margin-top-0">
+              <a href="#">Rutland Lodge Medical Practice</a>
+            </h2>
+            <p>27 Carlton Gardens<br />
+                Leeds<br />
+                West Yorkshire<br />
+                LS7 1JL</p>
+            <p><strong>Telephone</strong> 0113 200 7474</p>
+    </div>
+
+
+        <div>
+        <hr>
+            <p class="nhsuk-!-margin-bottom-0">0.6 miles away</p>
+            <h2 class="nhsuk-heading-m nhsuk-!-margin-top-0">
+              <a href="#">Woodhouse Medical Practice</a>
+            </h2>
+            <p>Woodhouse Health Centre<br />
+                Cambridge Road<br />
+                Leeds<br />
+                West Yorkshire<br />
+                LS6 2SF</p>
+            <p><strong>Telephone</strong> 0113 295 3510</p>
+    </div>
+
+  
+            <hr>   
+
+    {{ backLink({
+      "href": "/hubs/find-gp-1",
+      "text": "Search again"
+    }) }}
+
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
