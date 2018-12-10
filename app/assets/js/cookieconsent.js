@@ -137,14 +137,14 @@ function insertCookieBanner() {
         '<p>They collect information about how you use our website. This helps us make the website better.</p>' +
         '<p>None of these cookies are used to tell us who you are.</p></div>' +
         '<div class="center-wrapper">' +
-        '<button class="nhsuk-button">' +
+        '<button class="nhsuk-button cookie-understand">' +
         'I understand' +
         '</div>' +
-        '<div class="nhsuk-link">' +
-        '<a href="https://www.nhs.uk/aboutNHSChoices/aboutnhschoices/termsandconditions/Pages/cookies-policy.aspx">Tell me more about cookies</a>' +
+        '<div class="nhsuk-link cookie-link">' +
+        '<p><a href="https://www.nhs.uk/aboutNHSChoices/aboutnhschoices/termsandconditions/Pages/cookies-policy.aspx">Tell me more about cookies</a></p>' +
         '</div>' +
-        '<div class="nhsuk-link">' +
-        '<a id="later-link" href="#">Ask me later</a>' +
+        '<div class="nhsuk-link cookie-link">' +
+        '<p><a id="later-link" href="#">Ask me later</a></p>' +
         '</div>' +
         '</div>' +
         '</div>' +
