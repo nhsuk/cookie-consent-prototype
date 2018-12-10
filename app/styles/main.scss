@@ -54,4 +54,44 @@
   }
 }
 
+// Hero override for home page prototype
+.nhsuk-hero--image {
+  background-color: white;
+}
 
+@include mq($until: desktop) {
+
+  .nhsuk-section {
+    padding-bottom: 32px;
+    padding-top: 4px;
+  }
+
+  .nhsuk-section--half-left {
+    h2 {
+      margin-top: 16px !important;
+    }
+  }
+
+  .nhsuk-section--half-right {
+    h2 {
+      margin-top: 48px !important;
+    }
+  }
+}
+
+@include mq($from: desktop) {
+
+  .nhsuk-section--half-left,
+  .nhsuk-section--half-right  {
+    margin-bottom: 32px;
+  }
+
+}
+
+// Signage link 2 columns
+@include mq($from: desktop) {
+  .nhsuk-list-links--two-columns, .nhsuk-list-signage--two-columns {
+      column-count: 2;
+      column-gap: 16px;
+  }
+}
