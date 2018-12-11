@@ -9,7 +9,7 @@ ol {
 }
 
 // Karl's dirty spacing fixes
-.nhsuk-checkboxes__item {
+.nhsuk-checkboxes__item--cookies {
   padding-bottom: 24px;
 }
 button.cookie-understand {
@@ -27,7 +27,7 @@ button.cookie-understand {
     padding: 16px !important;
   }
   // Karl's dirty spacing fix for mobile
-  .nhsuk-checkboxes__item {
+  .nhsuk-checkboxes__item--cookies {
     padding-bottom: 16px;
   }
   button.cookie-understand {
