@@ -100,3 +100,19 @@
       column-gap: 16px;
   }
 }
+
+
+
+// Bens hacks
+.notification-banner--hiviz {
+  background-color: #fada8b; }
+  .notification-banner--hiviz a:link {
+    color: #004d97; }
+  .notification-banner--hiviz a:visited {
+    color: #00276f; }
+  .notification-banner--hiviz a:hover {
+    color: #3e78b2; }
+  .notification-banner--hiviz a:active {
+    color: #3e78b2; }
+  .notification-banner--hiviz a:focus {
+    outline: 3px solid #ffb81c; }
