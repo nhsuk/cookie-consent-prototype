@@ -1,251 +1,182 @@
-var delimiter = "---"; //used to split cookie into information
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/cookieconsent.js");
+/******/ })
+/************************************************************************/
+/******/ ({
 
-// If cookie rules/regulations change and the cookie itself needs to change, bump this version up afterwards.
-// It will then give the user the banner again to consent to the new rules
-var COOKIE_VERSION = 1;
-var cookieTypes = "necessary:true"+delimiter+"preferences:true"+delimiter+"statistics:true"+delimiter+"marketing:false"+"|"+COOKIE_VERSION;
+/***/ "./node_modules/css-loader/dist/runtime/api.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-window.addEventListener("load", function checkCookie() {
-    var cookieName = "nhsuk-cookie-consent";
-
-    //If there isn't a user cookie, create one
-
-    if (getCookie(cookieName) == null) {
-        createCookie(cookieName, cookieTypes, 365, "/");
-        insertCookieBanner();
-    }
-    else {
-        if (isValidVersion(cookieName, COOKIE_VERSION))
-        {
-        }
-        else
-        {
-            createCookie(cookieName, cookieTypes, 365);
-            insertCookieBanner();
-        }
-    }
-
-});
-
-//If consent is given, change value of cookie
-function acceptConsent() {
-    var cookieTypesAccepted = "necessary:true"+delimiter+"preferences:true"+delimiter+"statistics:true"+delimiter+"marketing:true"+"|"+COOKIE_VERSION;
-    createCookie("nhsuk-cookie-consent", cookieTypesAccepted, -1, "/");
-    createCookie("nhsuk-cookie-consent", cookieTypesAccepted, 365, "/");
-    hideCookieModal();
-    showCookieConfirmation();
-    setAriaHiddenFalse();
-    document.getElementById("change-cookie-settings").focus();
-};
-
-function getCookieVersion(name) {
-    var status = getCookie(name).split('|')[1];
-    return status.split(';')[0];
-};
-
-function isValidVersion(name, version) {
-    if (getCookieVersion(name) == version)
-        return true;
-    else
-        return false;
-};
-
-function askMeLater() {
-    createCookie("nhsuk-cookie-consent", cookieTypes, "", "/");
-    hideCookieModal();
-    setAriaHiddenFalse()
-};
-
-//used to create a new cookie for the user which covers different cookie types
-function createCookie(name, value, days, path, domain, secure){
-    //if number of days is given, sets expiry time
-    if (days) {
-        var date = new Date();
-        date.setTime(date.getTime()+(days*24*60*60*1000));
-        var expires=date.toGMTString();
-    }
-    else {
-        var expires = "";
-    }
-    //appends name to cookie, making it searchable
-    var cookieString= name + "=" + escape (value);
-
-    if (expires)
-    cookieString += ";expires=" + expires;
-
-    if (path)
-    cookieString += ";path=" + escape (path);
-
-    if (domain)
-    cookieString += ";domain=" + escape (domain);
-
-    if (secure)
-    cookieString += ";secure";
-
-    cookieString += ";";
-
-    //cookiestring now contains all necessary details and is turned into a cookie
-    document.cookie=cookieString;
-};
-
-//gets a cookie based on the name
-function getCookie(name) {
-    var dc = document.cookie;
-    var prefix = name + "=";
-    var begin = dc.indexOf("; " + prefix);
-    if (begin == -1) {
-        begin = dc.indexOf(prefix);
-        if (begin != 0) return null;
-    }
-    else
-    {
-        begin += 2;
-        var end = document.cookie.indexOf(";", begin);
-        if (end == -1) {
-        end = dc.length;
-        }
-    }
-    // because unescape has been deprecated, replaced with decodeURI
-    return decodeURI(dc.substring(begin + prefix.length, end));
-};
-
-function hideCookieModal() {
-    document.getElementById("cookiebanner").style.display = "none";
-};
-
-function showCookieConfirmation() {
-    document.getElementById("nhsuk-cookie-confirmation-banner").style.display = "block";
-};
-
-function setAriaHiddenFalse() {
-  document.getElementById('wrap').setAttribute("aria-hidden", "false");
-}
-
-function insertCookieBanner() {
-    document.getElementsByTagName("body")[0].insertAdjacentHTML('afterbegin',
-        '<div class="nhsuk-cookie-banner" id="cookiebanner" style="display:none" role="alertdialog" aria-labelledby="cookie-title" aria-describedby="modalDesc">' +
-        '<div class="modal-content">' +
-        '<svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false">' +
-        '<g fill="none">' +
-        '<path fill="#005EB8" d="M0 39.842h98.203V0H0z"></path>' +
-        '<path fill="#FFFFFF" d="M9.548 3.817H20.16l6.52 22.08h.09l4.465-22.08h8.021l-6.74 31.84H21.939l-6.65-22.032h-.09l-4.424 22.031H2.754l6.794-31.84m32.852.001h8.518l-2.502 12.18h10.069l2.508-12.18h8.519l-6.61 31.84h-8.518l2.826-13.638H47.135L44.31 35.656h-8.518L42.4 3.816m49.53 7.209c-1.64-.773-3.873-1.457-7.016-1.457-3.37 0-6.106.498-6.106 3.056 0 4.512 12.35 2.828 12.35 12.499 0 8.802-8.16 11.085-15.54 11.085-3.281 0-7.065-.78-9.842-1.648l2.006-6.477c1.682 1.096 5.058 1.827 7.835 1.827 2.646 0 6.789-.503 6.789-3.786 0-5.111-12.35-3.194-12.35-12.176 0-8.214 7.202-10.676 14.176-10.676 3.92 0 7.608.413 9.75 1.413l-2.052 6.34"></path>' +
-        '</g>' +
-        '<image xlink:href="" src="/assets/logos/fallback/logo-nhs.png"></image>' +
-        '</svg>' +
-        '<h2 id="cookie-title">Cookies on our website</h2>' +
-        '<div id="modalDesc"><p>We have put some small files called cookies on your device.</p>' +
-        '<p>They collect information about how you use our website. This helps us make the website better.</p>' +
-        '<p>None of these cookies are used to tell us who you are.</p></div>' +
-        '<div class="center-wrapper">' +
-        '<button class="nhsuk-button cookie-understand">' +
-        'I understand' +
-        '</div>' +
-        '<div class="nhsuk-link cookie-link">' +
-        '<p><a href="/cookies/manage-cookies">Tell me more about cookies</a></p>' +
-        '</div>' +
-        '<div class="nhsuk-link cookie-link">' +
-        '<p><a id="later-link" href="#">Ask me later</a></p>' +
-        '</div>' +
-        '</div>' +
-        '</div>' +
-        '</div>' +
-        '<header id="nhsuk-cookie-confirmation-banner" style="display:none;" role="banner">' +
-        '<div class="nhsuk-width-container">' +
-        '<p>Your cookie settings have been saved. <a href="/cookies/manage-cookies" style="color: #ffffff;" id="change-cookie-settings">Change your cookie settings.</a></p>' +
-        '</div>' +
-        '</header>');
-
-    var css = '.nhsuk-cookie-banner { display: block; position: fixed; z-index: 20; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: black; background-color: rgba(0, 0, 0, 0.4);} ' +
-    '#later-link { margin-bottom:16px;} ' +
-    '.modal-content { border-radius: 4px; background-color: #fefefe; margin: 15% auto; padding: 20px; border: 1px solid #888; width: 80%;}' +
-    '#cookie-desc {margin-bottom: 24px; color: #000000;}' +
-    '#cookie-title { margin-top: 24px; color: #000000;}' +
-    'a:not([href]) {display: inline;}' +
-    '#nhsuk-cookie-confirmation-banner { background-color: #007f3b; top: 0; left: 0; position:relative; box-shadow: 0 -4px 0 0 #003317; display: none; width: 100%; color: #ffffff; padding-top: 16px; padding-bottom: 16px;}' +
-    '#nhsuk-cookie-confirmation-banner p { margin-bottom: 0px;}' +
-    '#nhsuk-cookie-confirmation-banner a:hover { color: #212b32 !important;}' +
-    '#nhsuk-cookie-confirmation-banner a:focus { color: #212b32 !important;}' +
-    '.nhsuk-cookie-banner .nhsuk-logo { height: 40px; width: 99px;}' +
-    '@media only screen and (max-width: 420px) {.center-wrapper { text-align: center;}}' +
-    '.nhsuk-button {-webkit-appearance: none; background-color: #007f3b; border: 2px solid transparent; border-radius: 4px; box-shadow: 0 4px 0 #003317; box-sizing: border-box; color: #ffffff; cursor: pointer; display: inline-block; font-weight: 600; margin-top: 0; margin: 0 auto; padding: 8px 16px; position: relative; text-align: center; vertical-align: top; width: auto;}' +
-    '.nhsuk-button p { margin-top: 0px; margin-bottom: 0px;}' +
-    '.nhsuk-link {padding-top: 24px;}' +
-    '.nhsuk-button:link, .nhsuk-button:visited, .nhsuk-button:active, .nhsuk-button:hover {color: #ffffff; text-decoration: none;}' +
-    '.nhsuk-button::-moz-focus-inner { border: 0; padding: 0;}' +
-    '.nhsuk-button:hover, .nhsuk-button:focus {background-color: #00662f;}' +
-    '.nhsuk-button:active { box-shadow: none; top: 4px;}' +
-    '.nhsuk-button::before { background: transparent; bottom: -6px; content: ""; display: block; left: -2px; position: absolute; right: -2px; top: -2px;}' +
-    '.nhsuk-button:active::before { top: -6px;}',
-    head = document.head || document.getElementsByTagName('head')[0],
-    style = document.createElement('style');
-
-    style.type = 'text/css';
-    if (style.styleSheet){
-        // This is required for IE8 and below.
-        style.styleSheet.cssText = css;
-    } else {
-        style.appendChild(document.createTextNode(css));
-    }
-
-    head.appendChild(style);
-
-    // set a timeout before making the modal appear, so that DOM is changed to make the modal be read out due to it's role
-    setTimeout(function(){
-
-      document.getElementById("cookiebanner").style.display = 'block';
-
-      // get all focusable elements in the modal
-      var cookiemodal = document.querySelector('.modal-content'),
-          wrap = document.getElementById('wrap'),
-          inputs = cookiemodal.querySelectorAll('button, a'),
-          firstinput = inputs[0],
-          lastinput = inputs[inputs.length - 1];
-
-      // set main content to be hidden by screen readers so can't be selected
-      wrap.setAttribute("aria-hidden", "true");
-
-      // set focus on first focusable element
-      firstinput.focus();
-
-      // pressing escape will close the model
-      document.onkeydown = function(evt) {
-        evt = evt || window.event;
-        if (evt.keyCode === 27) { // escape key
-            hideCookieModal();
-        }
-      };
-
-      // if focus is on last element, pressing tab will focus on the first element
-      lastinput.onkeydown = function(evt) {
-        evt = evt || window.event;
-        if (evt.keyCode === 9 && !evt.shiftKey) { // tab key
-          evt.preventDefault();
-          firstinput.focus();
-        }
-      }
-
-      // if focus is on first element, shift tab will focus on the last element
-      firstinput.onkeydown = function(evt) {
-        evt = evt || window.event;
-        if (evt.keyCode === 9 && evt.shiftKey) { // shift tab
-          evt.preventDefault();
-          lastinput.focus();
-        }
-      }
-
-    }, 500);
-
-    //document.getElementsByClassName('nhsuk-button').focus();
-
-    document.getElementsByClassName("nhsuk-button")[0].addEventListener ("click", acceptConsent);
-    document.getElementById("later-link").addEventListener("click", hideCookieModal);
-    document.getElementById("nhsuk-cookie-confirmation-banner").addEventListener("click", showCookieConfirmation);
-    document.getElementById("later-link").addEventListener("click", askMeLater);
-
-    window.onclick = function(event) {
-        if (event.target == cookiebanner) {
-            askMeLater();
-            hideCookieModal();
-        }
-    };
-};
+  "use strict";
+  eval("\n\n/*\n  MIT License http://www.opensource.org/licenses/mit-license.php\n  Author Tobias Koppers @sokra\n*/\n// css base code, injected by the css-loader\nmodule.exports = function (useSourceMap) {\n  var list = []; // return the list of modules as css string\n\n  list.toString = function toString() {\n    return this.map(function (item) {\n      var content = cssWithMappingToString(item, useSourceMap);\n\n      if (item[2]) {\n        return '@media ' + item[2] + '{' + content + '}';\n      } else {\n        return content;\n      }\n    }).join('');\n  }; // import a list of modules into the list\n\n\n  list.i = function (modules, mediaQuery) {\n    if (typeof modules === 'string') {\n      modules = [[null, modules, '']];\n    }\n\n    var alreadyImportedModules = {};\n\n    for (var i = 0; i < this.length; i++) {\n      var id = this[i][0];\n\n      if (id != null) {\n        alreadyImportedModules[id] = true;\n      }\n    }\n\n    for (i = 0; i < modules.length; i++) {\n      var item = modules[i]; // skip already imported module\n      // this implementation is not 100% perfect for weird media query combinations\n      // when a module is imported multiple times with different media queries.\n      // I hope this will never occur (Hey this way we have smaller bundles)\n\n      if (item[0] == null || !alreadyImportedModules[item[0]]) {\n        if (mediaQuery && !item[2]) {\n          item[2] = mediaQuery;\n        } else if (mediaQuery) {\n          item[2] = '(' + item[2] + ') and (' + mediaQuery + ')';\n        }\n\n        list.push(item);\n      }\n    }\n  };\n\n  return list;\n};\n\nfunction cssWithMappingToString(item, useSourceMap) {\n  var content = item[1] || '';\n  var cssMapping = item[3];\n\n  if (!cssMapping) {\n    return content;\n  }\n\n  if (useSourceMap && typeof btoa === 'function') {\n    var sourceMapping = toComment(cssMapping);\n    var sourceURLs = cssMapping.sources.map(function (source) {\n      return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */';\n    });\n    return [content].concat(sourceURLs).concat([sourceMapping]).join('\\n');\n  }\n\n  return [content].join('\\n');\n} // Adapted from convert-source-map (MIT)\n\n\nfunction toComment(sourceMap) {\n  // eslint-disable-next-line no-undef\n  var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));\n  var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;\n  return '/*# ' + data + ' */';\n}\n\n//# sourceURL=webpack:///./node_modules/css-loader/dist/runtime/api.js?");
+  
+  /***/ }),
+  
+  /***/ "./package.json":
+  /*!**********************!*\
+    !*** ./package.json ***!
+    \**********************/
+  /*! exports provided: name, version, description, main, directories, scripts, repository, author, license, bugs, homepage, devDependencies, default */
+  /***/ (function(module) {
+  
+  eval("module.exports = {\"name\":\"cookie-consent\",\"version\":\"0.0.1\",\"description\":\"In-house solution for managing cookies on nhs.uk\",\"main\":\"src/cookieconsent.js\",\"directories\":{\"test\":\"tests\"},\"scripts\":{\"build\":\"webpack\",\"lint\":\"eslint\",\"start\":\"npm run watch & npm run testserver\",\"test\":\"npm run test:unit; npm run test:integration\",\"test:unit\":\"jest\",\"test:integration\":\"jest -c tests/integration-tests/jest.config.js\",\"testserver\":\"./node_modules/.bin/http-server\",\"watch\":\"webpack --watch\"},\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/nhsuk/cookie-consent.git\"},\"author\":\"\",\"license\":\"ISC\",\"bugs\":{\"url\":\"https://github.com/nhsuk/cookie-consent/issues\"},\"homepage\":\"https://github.com/nhsuk/cookie-consent#readme\",\"devDependencies\":{\"@babel/cli\":\"^7.1.5\",\"@babel/core\":\"^7.1.6\",\"@babel/preset-env\":\"^7.1.6\",\"babel-core\":\"^7.0.0-bridge.0\",\"babel-jest\":\"^23.6.0\",\"babel-loader\":\"^8.0.4\",\"css-loader\":\"^2.0.0\",\"eslint\":\"^5.9.0\",\"eslint-config-nhsuk\":\"^0.16.0\",\"html-loader\":\"^0.5.5\",\"http-server\":\"^0.11.1\",\"jest\":\"^23.6.0\",\"jest-puppeteer\":\"^3.5.2\",\"puppeteer\":\"^1.11.0\",\"regenerator-runtime\":\"^0.13.1\",\"webpack\":\"^4.26.1\",\"webpack-cli\":\"^3.1.2\"}};\n\n//# sourceURL=webpack:///./package.json?");
+  
+  /***/ }),
+  
+  /***/ "./src/cookieconsent.js":
+  /*!******************************!*\
+    !*** ./src/cookieconsent.js ***!
+    \******************************/
+  /*! exports provided: COOKIE_VERSION, acceptConsent, askMeLater */
+  /***/ (function(module, __webpack_exports__, __webpack_require__) {
+  
+  "use strict";
+  eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"COOKIE_VERSION\", function() { return COOKIE_VERSION; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"acceptConsent\", function() { return acceptConsent; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"askMeLater\", function() { return askMeLater; });\n/* harmony import */ var _cookies__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cookies */ \"./src/cookies.js\");\n/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modal */ \"./src/modal.js\");\n/* harmony import */ var _enable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./enable */ \"./src/enable.js\");\n/* harmony import */ var _package_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../package.json */ \"./package.json\");\nvar _package_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../package.json */ \"./package.json\", 1);\nfunction _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\n/* eslint-disable prefer-arrow-callback */\n\n\n\n\n/**\n * If cookie rules/regulations change and the cookie itself needs to change,\n * bump this version up afterwards. It will then give the user the banner again\n * to consent to the new rules\n */\n\nvar COOKIE_VERSION = 1;\nvar COOKIE_NAME = 'nhsuk-cookie-consent';\n/* eslint-disable sort-keys */\n\nvar cookieTypes = {\n  necessary: true,\n  preferences: true,\n  statistics: false,\n  marketing: false,\n  version: COOKIE_VERSION\n};\n/* eslint-enable sort-key */\n\nfunction getCookie() {\n  var rawCookie = Object(_cookies__WEBPACK_IMPORTED_MODULE_0__[\"getCookie\"])(COOKIE_NAME);\n  return JSON.parse(rawCookie);\n}\n\nfunction createCookie(value, days, path, domain, secure) {\n  var stringValue = JSON.stringify(value);\n  return Object(_cookies__WEBPACK_IMPORTED_MODULE_0__[\"createCookie\"])(COOKIE_NAME, stringValue, days, path, domain, secure);\n}\n\nfunction getCookieVersion() {\n  return getCookie(COOKIE_NAME).version;\n}\n\nfunction isValidVersion(version) {\n  return getCookieVersion() <= version;\n} // If consent is given, change value of cookie\n\n\nfunction acceptConsent() {\n  // On a domain where marketing cookies are required, toggleMarketing() would go here\n  Object(_modal__WEBPACK_IMPORTED_MODULE_1__[\"hideCookieModal\"])();\n}\nfunction askMeLater() {\n  createCookie(COOKIE_NAME, cookieTypes, '', '/');\n  Object(_modal__WEBPACK_IMPORTED_MODULE_1__[\"hideCookieModal\"])();\n} // N.B document.currentScript needs to be executed outside of any callbacks\n// https://developer.mozilla.org/en-US/docs/Web/API/Document/currentScript#Notes\n\nvar scriptTag = document.currentScript;\n/**\n * Get properties from the script tag that is including this javascript\n */\n\nfunction getScriptSettings() {\n  var defaults = {\n    nobanner: false\n  };\n\n  if (!scriptTag) {\n    return defaults;\n  }\n\n  var dataNobanner = scriptTag.getAttribute('data-nobanner'); // overwrite the default settings with attributes found on the <script> tag\n\n  return _objectSpread({}, defaults, {\n    nobanner: dataNobanner === 'true' || dataNobanner === ''\n  });\n}\n\nfunction getConsentSetting(key) {\n  var cookie = getCookie(COOKIE_NAME);\n  return cookie[key];\n}\n\nfunction getPreferences() {\n  return getConsentSetting('preferences');\n}\n\nfunction getStatistics() {\n  return getConsentSetting('statistics');\n}\n\nfunction getMarketing() {\n  return getConsentSetting('marketing');\n}\n\nfunction togglePreferences() {\n  var cookie = getCookie();\n  cookie.preferences = !cookie.preferences;\n  createCookie(cookie, 365, '/');\n}\n\nfunction toggleStatistics() {\n  var cookie = getCookie();\n  cookie.statistics = !cookie.statistics;\n  createCookie(cookie, 365, '/');\n}\n\nfunction toggleMarketing() {\n  var cookie = getCookie();\n  cookie.marketing = !cookie.marketing;\n  createCookie(cookie, 365, '/');\n}\n/*\n * Set the global NHSCookieConsent object that implementors of this library\n * will interact with.\n */\n\n\nwindow.NHSCookieConsent = {\n  /*\n   * The version of this package as defined in the package.json\n   */\n  VERSION: _package_json__WEBPACK_IMPORTED_MODULE_3__.version,\n  getPreferences: getPreferences,\n  getStatistics: getStatistics,\n  getMarketing: getMarketing,\n  togglePreferences: togglePreferences,\n  toggleStatistics: toggleStatistics,\n  toggleMarketing: toggleMarketing\n};\nwindow.addEventListener(\"load\", function checkCookie() {\n  var settings = getScriptSettings(); // If there isn't a user cookie, create one\n\n  if (getCookie() == null) {\n    createCookie(cookieTypes, 365, '/');\n\n    if (!settings.nobanner) {\n      Object(_modal__WEBPACK_IMPORTED_MODULE_1__[\"insertCookieBanner\"])(acceptConsent, askMeLater);\n    }\n  } else if (!isValidVersion(COOKIE_VERSION)) {\n    createCookie(cookieTypes, 365, '/');\n\n    if (!settings.nobanner) {\n      Object(_modal__WEBPACK_IMPORTED_MODULE_1__[\"insertCookieBanner\"])(acceptConsent, askMeLater);\n    }\n  }\n\n  if (getStatistics() === true) {\n    Object(_enable__WEBPACK_IMPORTED_MODULE_2__[\"enableScriptsByCategory\"])('statistics');\n    Object(_enable__WEBPACK_IMPORTED_MODULE_2__[\"enableIframesByCategory\"])('statistics');\n  }\n\n  if (getPreferences() === true) {\n    Object(_enable__WEBPACK_IMPORTED_MODULE_2__[\"enableScriptsByCategory\"])('preferences');\n    Object(_enable__WEBPACK_IMPORTED_MODULE_2__[\"enableIframesByCategory\"])('preferences');\n  }\n\n  if (getMarketing() === true) {\n    Object(_enable__WEBPACK_IMPORTED_MODULE_2__[\"enableScriptsByCategory\"])('marketing');\n    Object(_enable__WEBPACK_IMPORTED_MODULE_2__[\"enableIframesByCategory\"])('marketing');\n  }\n});\n\n//# sourceURL=webpack:///./src/cookieconsent.js?");
+  
+  /***/ }),
+  
+  /***/ "./src/cookies.js":
+  /*!************************!*\
+    !*** ./src/cookies.js ***!
+    \************************/
+  /*! exports provided: createCookie, getCookie */
+  /***/ (function(module, __webpack_exports__, __webpack_require__) {
+  
+  "use strict";
+  eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"createCookie\", function() { return createCookie; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getCookie\", function() { return getCookie; });\n//used to create a new cookie for the user which covers different cookie types\nfunction createCookie(name, value, days, path, domain, secure) {\n  //if number of days is given, sets expiry time\n  if (days) {\n    var date = new Date();\n    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);\n    var expires = date.toGMTString();\n  } else {\n    var expires = \"\";\n  } //appends name to cookie, making it searchable\n\n\n  var cookieString = name + \"=\" + escape(value);\n  if (expires) cookieString += \";expires=\" + expires;\n  if (path) cookieString += \";path=\" + escape(path);\n  if (domain) cookieString += \";domain=\" + escape(domain);\n  if (secure) cookieString += \";secure\";\n  cookieString += \";\"; //cookiestring now contains all necessary details and is turned into a cookie\n\n  document.cookie = cookieString;\n}\n; //gets a cookie based on the name\n\nfunction getCookie(name) {\n  var dc = document.cookie;\n  var prefix = name + \"=\";\n  var begin = dc.indexOf(\"; \" + prefix);\n\n  if (begin == -1) {\n    begin = dc.indexOf(prefix);\n    if (begin != 0) return null;\n  } else {\n    begin += 2;\n    var end = document.cookie.indexOf(\";\", begin);\n\n    if (end == -1) {\n      end = dc.length;\n    }\n  } // because unescape has been deprecated, replaced with decodeURI\n\n\n  return decodeURIComponent(dc.substring(begin + prefix.length, end));\n}\n\n//# sourceURL=webpack:///./src/cookies.js?");
+  
+  /***/ }),
+  
+  /***/ "./src/enable.js":
+  /*!***********************!*\
+    !*** ./src/enable.js ***!
+    \***********************/
+  /*! exports provided: enableScriptsByCategory, enableIframesByCategory */
+  /***/ (function(module, __webpack_exports__, __webpack_require__) {
+  
+  "use strict";
+  eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"enableScriptsByCategory\", function() { return enableScriptsByCategory; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"enableIframesByCategory\", function() { return enableIframesByCategory; });\n/*\n * Changing the type to text/javascript will not cause the script to execute.\n * We need to add a sibling and then remove the original node.\n */\nfunction enableScript(script) {\n  var newScript = script.cloneNode(true);\n  var parent = script.parentElement;\n  newScript.setAttribute('type', 'text/javascript');\n  parent.insertBefore(newScript, script);\n  script.remove();\n}\n/*\n * Enable iframes by setting the src from the data-src attribute\n */\n\n\nfunction enableIframe(iframe) {\n  var src = iframe.getAttribute('data-src');\n  iframe.setAttribute('src', src);\n}\n/**\n * Enable all scripts for a given data-cookieconsent category\n */\n\n\nfunction enableScriptsByCategory(category) {\n  var scripts = document.querySelectorAll(\"script[data-cookieconsent=\\\"\".concat(category, \"\\\"]\"));\n  scripts.forEach(function (script) {\n    return enableScript(script);\n  });\n}\n/**\n * Enable all iframes for a given data-cookieconsent category\n */\n\nfunction enableIframesByCategory(category) {\n  var iframes = document.querySelectorAll(\"iframe[data-cookieconsent=\\\"\".concat(category, \"\\\"]\"));\n  iframes.forEach(function (iframe) {\n    return enableIframe(iframe);\n  });\n}\n\n//# sourceURL=webpack:///./src/enable.js?");
+  
+  /***/ }),
+  
+  /***/ "./src/modal.html":
+  /*!************************!*\
+    !*** ./src/modal.html ***!
+    \************************/
+  /*! no static exports found */
+  /***/ (function(module, exports) {
+  
+  eval("module.exports = \"<div class=\\\"nhsuk-cookie-banner\\\" id=\\\"cookiebanner\\\" role=\\\"banner\\\">\\n  <div class=\\\"nhsuk-cookie-banner__content\\\">\\n    <p>We've put small files called cookies on your device to make the website better</p>\\n    <div class=\\\"nhsuk-cookie-banner__link_accept\\\"><a  href=\\\"\\\" tabindex=\\\"1\\\">Accept cookies</a></div>\\n    <div class=\\\"nhsuk-cookie-banner__link\\\"><a href=\\\"https://nhsuk-live-review-rounday-research-prototype.dev.beta.nhschoices.net/our-policies/cookies-policy/\\\" tabindex=\\\"2\\\">Change cookie settings</a></div>\\n  </div>\\n</div>\\n\";\n\n//# sourceURL=webpack:///./src/modal.html?");
+  
+  /***/ }),
+  
+  /***/ "./src/modal.js":
+  /*!**********************!*\
+    !*** ./src/modal.js ***!
+    \**********************/
+  /*! exports provided: hideCookieModal, showCookieConfirmation, insertCookieBanner */
+  /***/ (function(module, __webpack_exports__, __webpack_require__) {
+  
+  "use strict";
+  eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"hideCookieModal\", function() { return hideCookieModal; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"showCookieConfirmation\", function() { return showCookieConfirmation; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"insertCookieBanner\", function() { return insertCookieBanner; });\n/* harmony import */ var _modal_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modal.html */ \"./src/modal.html\");\n/* harmony import */ var _modal_html__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_modal_html__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_1__);\n\n\nfunction hideCookieModal() {\n  document.getElementById('cookiebanner').style.display = 'none';\n  var header = document.getElementsByClassName('nhsuk-global-header')[0];\n  header.style.marginTop = 0;\n}\nfunction showCookieConfirmation() {\n  document.getElementById('nhsuk-cookie-confirmation-banner').style.display = 'block';\n}\nfunction insertCookieBanner(acceptConsent, askMeLater) {\n  // add a css block to the inserted html\n  var html = \"\".concat(_modal_html__WEBPACK_IMPORTED_MODULE_0___default.a, \" <style>\").concat(_style_css__WEBPACK_IMPORTED_MODULE_1___default.a.toString(), \"</style>\");\n  document.getElementsByTagName('body')[0].innerHTML += html;\n  document.getElementsByClassName('nhsuk-cookie-banner__link_accept')[0].addEventListener('click', acceptConsent);\n  var cookieBannerHeight = document.getElementById('cookiebanner').offsetHeight;\n  var header = document.getElementsByClassName('nhsuk-global-header')[0];\n  header.style.marginTop = cookieBannerHeight.toString() + 'px';\n}\n\n//# sourceURL=webpack:///./src/modal.js?");
+  
+  /***/ }),
+  
+  /***/ "./src/style.css":
+  /*!***********************!*\
+    !*** ./src/style.css ***!
+    \***********************/
+  /*! no static exports found */
+  /***/ (function(module, exports, __webpack_require__) {
+  
+  eval("exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".nhsuk-cookie-banner{background:#fff;top:0;box-shadow: inset 0 -2px 0 0 black;margin:0 auto;padding-bottom:32px;padding-top:16px; position:fixed;width:100%; overflow: hidden; z-index:1;}\\n@media print{.nhsuk-cookie-banner{display:none}}\\n@media (max-width:40.0525em){.nhsuk-cookie-banner{padding-bottom:24px}}.nhsuk-cookie-banner__content{margin-left: 32px; position:relative}.nhsuk-cookie-banner__content:after{clear:both;content:'';display:block}\\n.nhsuk-cookie-banner .wrap{white-space:nowrap}\\n.nhsuk-cookie-banner__link_accept{font-weight: bold; padding-bottom: 8px;}\\n.nhsuk-cookie-banner__link{padding-bottom: 8px;}\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./src/style.css?");
+  
+  /***/ })
+  
+  /******/ });
